@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int Coin_Change(int* V,int n,int N,int* dp)
@@ -32,21 +30,21 @@ int Coin_Change(int* V,int n,int N,int* dp)
     cout<<Coin_Change(V,n,N,dp)<<endl;
 }*/
 
-int fibo(int t,int* dp)
+/*int fibo(int t,int* dp)
 {
     if(dp[t]!=-1) return dp[t];
     
-    //if(t==2) return dp[2]=1;
+    if(t==2) return dp[2]=1;
     if(t<=1) 
     {
         dp[0]=0;
         return dp[1]=1;
     }
         
-    //cout<<dp[t]<<":"<<t<<endl;
+   cout<<dp[t]<<":"<<t<<endl;
         
     return (dp[t]=fibo(t-1,dp)+fibo(t-2,dp));
-}
+} */
 
 /*int main()
 {
