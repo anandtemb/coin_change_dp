@@ -1,22 +1,22 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <string>
 #include <algorithm>
 using namespace std;
 
 int Coin_Change(int* V,int n,int N,int* dp)
 {
-    //if(dp[N]!=-1) return dp[N];
+    if(dp[N]!=-1) return dp[N];
     
     if(N==0) return 1;
     
     if(N<0) return 0;
     
-    //int s=0;
-    /*for(int i=0;i<n;i++)
+    int s=0;
+    for(int i=0;i<n;i++)
     {
         s+=Coin_Change(V,n,N-V[i],dp)+Coin_Change(V,n-1;
-    }*/
-    //return s;
+    }
+    return s;
     
     return Coin_Change(V,n-1,N,dp)+Coin_Change(V,n,N-V[n-1],dp);
 }
@@ -184,4 +184,31 @@ int main()
     }*/
         
 }
+                                                 
+int main() {
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+    sort(arr.begin(),arr.end());
+    int biggie = arr[n-1];
+    int count[biggie]={0};
+    for(int j=0; j<biggie; j++){
+        count[arr[j]]++;
+    }
+    int max=count[0],wins;
+    for(int k=1; k<biggie; k++){
+        if(count[k-1]<count[k]){
+            max=count[k];
+            wins=k;
+        }
+    }
+    if(max>static_cast<double>(n)/2){
+        cout<<wins;
+    }
+    else{
+        cout<<"no majority";
+    }
 
